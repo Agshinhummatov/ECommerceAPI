@@ -1,6 +1,9 @@
-﻿using E_CommerceAPI.Application.Repositories;
+﻿using E_CommerceAPI.Application.Abstractions.Services;
+using E_CommerceAPI.Application.Repositories;
 using E_CommerceAPI.Domain.Entities.Identity;
 using E_CommerceAPI.Persistence.Contexts;
+using E_CommerceAPI.Persistence.Repositories;
+using E_CommerceAPI.Persistence.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -25,10 +28,17 @@ namespace E_CommerceAPI.Persistence
                 options.Password.RequireDigit = false;
                 options.Password.RequireLowercase = false;
                 options.Password.RequireUppercase = false;
-            }).AddEntityFrameworkStores<ECommerceAPIDbContext>(); 
+            }).AddEntityFrameworkStores<ECommerceAPIDbContext>();
 
 
-          
+
+            services.AddScoped<IProductReadRepository, ProductReadRepository>();
+            services.AddScoped<IProductWriteRepository, ProductWriteRepository>();
+
+
+
+            services.AddScoped<IProductService, ProductService>();
+
 
 
 
