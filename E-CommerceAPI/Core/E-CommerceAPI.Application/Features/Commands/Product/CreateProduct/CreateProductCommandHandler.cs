@@ -1,4 +1,6 @@
 ﻿
+using E_CommerceAPI.Application.Abstractions.Services;
+using E_CommerceAPI.Application.DTOs.Product;
 using E_CommerceAPI.Application.Repositories;
 using MediatR;
 using System;
@@ -11,30 +13,26 @@ namespace E_CommerceAPI.Application.Features.Commands.Product.CreateProduct
 {
     public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequset, CreateProductCommandResponse>
     {
-        readonly IProductWriteRepository _productWriteRepository;
+        private readonly IProductService _productService;
 
-       
-
-        public CreateProductCommandHandler(IProductWriteRepository productWriteRepository)
+        public CreateProductCommandHandler(IProductService productService)
         {
-            _productWriteRepository = productWriteRepository;
-          
+            _productService = productService;
         }
 
         public async Task<CreateProductCommandResponse> Handle(CreateProductCommandRequset request, CancellationToken cancellationToken)
         {
-            await _productWriteRepository.AddAsync(new()
+            var productDto = new ProductDTO
             {
-
                 Name = request.Name,
                 Price = request.Price,
                 Stock = request.Stock
-            });
+            };
 
-            await _productWriteRepository.SaveAsync();
-          
+            await _productService.CreateProductAsync(productDto);
 
-            return new();
+            return new CreateProductCommandResponse();
         }
+
     }
 }

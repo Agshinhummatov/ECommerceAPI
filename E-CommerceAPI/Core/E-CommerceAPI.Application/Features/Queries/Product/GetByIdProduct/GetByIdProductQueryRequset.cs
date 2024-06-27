@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace E_CommerceAPI.Application.Features.Queries.Product.GetByIdProduct
 {
-    public class GetByIdProductQureyRequset : IRequest<GetByIdProductQureyResponse>
+    public class GetByIdProductQueryRequset : IRequest<GetByIdProductQueryResponse>
     {
 
         public string Id { get; set; }

@@ -1,4 +1,5 @@
-﻿using E_CommerceAPI.Application.Repositories;
+﻿using E_CommerceAPI.Application.Abstractions.Services;
+using E_CommerceAPI.Application.Repositories;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -10,20 +11,31 @@ namespace E_CommerceAPI.Application.Features.Commands.Product.RemoveProduct
 {
     public class RemoveProductCommandHandler : IRequestHandler<RemoveProductCommandRequset, RemoveProductCommandResponse>
     {
-        readonly IProductWriteRepository _productWriteRepository;
+        private readonly IProductService _productService;
 
-        public RemoveProductCommandHandler(IProductWriteRepository productWriteRepository)
+        public RemoveProductCommandHandler(IProductService productService)
         {
-            _productWriteRepository = productWriteRepository;
+            _productService = productService;
         }
 
         public async Task<RemoveProductCommandResponse> Handle(RemoveProductCommandRequset request, CancellationToken cancellationToken)
         {
-
-            await _productWriteRepository.RemoveAsync(request.Id);
-            await _productWriteRepository.SaveAsync();
-            return new();
+            try
+            {
+                await _productService.RemoveProductAsync(request.Id);
+                return new RemoveProductCommandResponse();
+            }
+            catch (ArgumentException ex)
+            {
+                throw new Exception("Invalid product ID", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while removing the product", ex);
+            }
         }
+
+
 
 
     }

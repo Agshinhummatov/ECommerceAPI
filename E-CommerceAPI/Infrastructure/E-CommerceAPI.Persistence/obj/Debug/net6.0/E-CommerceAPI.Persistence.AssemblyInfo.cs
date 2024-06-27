@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("E-CommerceAPI.Persistence")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+53bd417efda46b403207cba148d4c010f3334747")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9537e20d2ca344a238c34815c61c9a6f2468984b")]
 [assembly: System.Reflection.AssemblyProductAttribute("E-CommerceAPI.Persistence")]
 [assembly: System.Reflection.AssemblyTitleAttribute("E-CommerceAPI.Persistence")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

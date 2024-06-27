@@ -1,4 +1,6 @@
-﻿using E_CommerceAPI.Application.Repositories;
+﻿using E_CommerceAPI.Application.Abstractions.Services;
+using E_CommerceAPI.Application.DTOs.Product;
+using E_CommerceAPI.Application.Repositories;
 using MediatR;
 using P = E_CommerceAPI.Domain.Entities;
 
@@ -6,32 +8,35 @@ namespace E_CommerceAPI.Application.Features.Commands.Product.UpdateProduct
 {
     public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommandRequset, UpdateProductCommandResponse>
     {
-        readonly IProductReadRepository _productReadRepository;
-        readonly IProductWriteRepository _productWriteRepository;
+        private readonly IProductService _productService;
 
-        public UpdateProductCommandHandler(IProductReadRepository productReadRepository)
+        public UpdateProductCommandHandler(IProductService productService)
         {
-            _productReadRepository = productReadRepository;
-        }
-
-        public UpdateProductCommandHandler(IProductReadRepository productReadRepository, IProductWriteRepository productWriteRepository)
-        {
-            _productReadRepository = productReadRepository;
-            _productWriteRepository = productWriteRepository;
+            _productService = productService;
         }
 
         public async Task<UpdateProductCommandResponse> Handle(UpdateProductCommandRequset request, CancellationToken cancellationToken)
         {
-            P.Product product = await _productReadRepository.GetByIdAsync(request.Id);
+            try
+            {
+                var productUpdateDTO = new ProductUpdateDTO
+                {
+                    Name = request.Name,
+                    Price = request.Price,
+                    Stock = request.Stock
+                };
 
-            product.Name = request.Name;
-            product.Price = request.Price;
-            product.Stock = request.Stock;
-
-
-            await _productWriteRepository.SaveAsync();
-
-            return new();
+                await _productService.UpdateProductAsync(request.Id, productUpdateDTO);
+                return new UpdateProductCommandResponse();
+            }
+            catch (ArgumentException ex)
+            {
+                throw new Exception("Invalid product ID", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while updating the product", ex);
+            }
         }
     }
 }
