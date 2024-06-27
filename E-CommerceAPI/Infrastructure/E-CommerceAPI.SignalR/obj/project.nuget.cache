@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "1i76zqHZ6XQYtH/e23tQ1lyhUX9sBySvRUnjVZY5EoEyBvVonIoBn9Ldl9QRllfOQaU68v/oG62479Rp2P4PAg==",
+  "dgSpecHash": "Gu8uPHbKbneaI4r4U1geZV+JpfJiAm03KXERYKxzlGx43KFSrtYhkaAbIlhtjCX1xN/wPd+9KyMTlN/tlDslLA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Acer\\Desktop\\AIRGroupProject\\E-CommerceAPI\\Infrastructure\\E-CommerceAPI.SignalR\\E-CommerceAPI.SignalR.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Acer\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.25\\microsoft.aspnetcore.cryptography.internal.6.0.25.nupkg.sha512"
+  ],
   "logs": []
 }
