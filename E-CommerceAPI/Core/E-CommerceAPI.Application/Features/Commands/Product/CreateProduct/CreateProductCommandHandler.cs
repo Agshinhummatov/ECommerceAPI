@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace E_CommerceAPI.Application.Features.Commands.Product.CreateProduct
 {
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequset, CreateProductCommandResponse>
+    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest, CreateProductCommandResponse>
     {
         private readonly IProductService _productService;
 
@@ -20,13 +20,15 @@ namespace E_CommerceAPI.Application.Features.Commands.Product.CreateProduct
             _productService = productService;
         }
 
-        public async Task<CreateProductCommandResponse> Handle(CreateProductCommandRequset request, CancellationToken cancellationToken)
+        public async Task<CreateProductCommandResponse> Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
         {
             var productDto = new ProductDTO
             {
                 Name = request.Name,
+                Description = request.Description,
                 Price = request.Price,
-                Stock = request.Stock
+                Stock = request.Stock,
+                
             };
 
             await _productService.CreateProductAsync(productDto);

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace E_CommerceAPI.Application.Features.Queries.Product.GetByIdProduct
 {
-    public class GetByIdProductQueryHandler : IRequestHandler<GetByIdProductQueryRequset, GetByIdProductQueryResponse>
+    public class GetByIdProductQueryHandler : IRequestHandler<GetByIdProductQueryRequest, GetByIdProductQueryResponse>
     {
         private readonly IProductService _productService;
 
@@ -18,7 +18,7 @@ namespace E_CommerceAPI.Application.Features.Queries.Product.GetByIdProduct
             _productService = productService;
         }
 
-        public async Task<GetByIdProductQueryResponse> Handle(GetByIdProductQueryRequset request, CancellationToken cancellationToken)
+        public async Task<GetByIdProductQueryResponse> Handle(GetByIdProductQueryRequest request, CancellationToken cancellationToken)
         {
             var productDto = await _productService.GetByIdAsync(request.Id);
 
@@ -33,6 +33,7 @@ namespace E_CommerceAPI.Application.Features.Queries.Product.GetByIdProduct
                 Name = productDto.Name,
                 Price = productDto.Price,
                 Stock = productDto.Stock,
+                Description = productDto.Description,
                 CreatedDate = productDto.CreatedDate,
                 UpdatedDate = productDto.UpdatedDate,
                 ProductImageFiles = productDto.ProductImageFiles

@@ -17,5 +17,7 @@ namespace E_CommerceAPI.Application.Abstractions.Services
         Task RemoveProductAsync(string id);
 
         Task UpdateProductAsync(string id, ProductUpdateDTO productUpdateDTO);
+
+        Task<IEnumerable<ProductDTO>> SearchProductsAsync(string searchTerm);
     }
 }

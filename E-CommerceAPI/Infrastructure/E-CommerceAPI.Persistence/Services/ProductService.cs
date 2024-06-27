@@ -66,6 +66,7 @@ namespace E_CommerceAPI.Persistence.Services
                 Name = product.Name,
                 Price = product.Price,
                 Stock = product.Stock,
+                Description = product.Description,
                 CreatedDate = product.CreatedDate,
                 UpdatedDate = product.UpdatedDate,
                 ProductImageFiles = product.ProductImageFiles?.Select(img => new ProductImageFileDTO
@@ -87,7 +88,8 @@ namespace E_CommerceAPI.Persistence.Services
             {
                 Name = productDto.Name,
                 Price = productDto.Price,
-                Stock = productDto.Stock
+                Stock = productDto.Stock,
+                Description = productDto.Description
             });
 
             await _productWriteRepository.SaveAsync();
@@ -123,8 +125,38 @@ namespace E_CommerceAPI.Persistence.Services
             product.Name = productUpdateDTO.Name;
             product.Price = productUpdateDTO.Price;
             product.Stock = productUpdateDTO.Stock;
+            product.Description = productUpdateDTO.Description;
 
             await _productWriteRepository.SaveAsync();
+        }
+
+        public async Task<IEnumerable<ProductDTO>> SearchProductsAsync(string searchTerm)
+        {
+            if (string.IsNullOrWhiteSpace(searchTerm))
+            {
+                throw new ArgumentException("Search term cannot be empty", nameof(searchTerm));
+            }
+
+            var products =  _productReadRepository.GetAll(false); 
+
+            var filteredProducts = products
+                .AsEnumerable() 
+                .Where(p => p.Name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
+                .Select(p => new ProductDTO
+                {
+                    Id = p.Id.ToString(),
+                    Name = p.Name,
+                    Price = p.Price,
+                    Stock = p.Stock,
+                    CreatedDate = p.CreatedDate,
+                    UpdatedDate = p.UpdatedDate,
+                    ProductImageFiles = p.ProductImageFiles?.Select(img => new ProductImageFileDTO
+                    {
+                        Path = img.Path
+                    }).ToList()
+                });
+
+            return filteredProducts;
         }
     }
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace E_CommerceAPI.Application.Features.Commands.Product.RemoveProduct
 {
-    public class RemoveProductCommandRequset : IRequest<RemoveProductCommandResponse>
+    public class RemoveProductCommandRequest : IRequest<RemoveProductCommandResponse>
     {
         public string Id { get; set; }
 

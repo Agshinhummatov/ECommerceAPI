@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace E_CommerceAPI.Application.Features.Queries.Product.GetByIdProduct
 {
-    public class GetByIdProductQueryRequset : IRequest<GetByIdProductQueryResponse>
+    public class GetByIdProductQueryRequest :IRequest<GetByIdProductQueryResponse>
     {
-
-        public string Id { get; set; }
+        public  string Id { get; set; }
     }
 }

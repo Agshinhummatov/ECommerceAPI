@@ -25,7 +25,7 @@ namespace E_CommerceAPI.Persistence.Repositories
         public IQueryable<T> GetAll(bool tracking = true)
         {
             var query = Table.AsQueryable();
-            if (!tracking)
+            if(!tracking)
                 query = query.AsNoTracking();
             return query;
         }
@@ -38,13 +38,13 @@ namespace E_CommerceAPI.Persistence.Repositories
                 query = query.AsNoTracking();
             return query;
         }
-
+       
 
 
         public async Task<T> GetSingleAsync(Expression<Func<T, bool>> method, bool tracking = true)
         {
             var query = Table.AsQueryable();
-            if (!tracking)
+            if(!tracking)
                 query = query.AsNoTracking();
             return await query.FirstOrDefaultAsync(method);
         }
@@ -57,8 +57,8 @@ namespace E_CommerceAPI.Persistence.Repositories
             var query = Table.AsQueryable();
             if (!tracking)
                 query = query.AsNoTracking();
-            return await query.FirstOrDefaultAsync(data => data.Id == Guid.Parse(id));
+            return await query.FirstOrDefaultAsync( data => data.Id == Guid.Parse(id));
         }
-
+       
     }
 }

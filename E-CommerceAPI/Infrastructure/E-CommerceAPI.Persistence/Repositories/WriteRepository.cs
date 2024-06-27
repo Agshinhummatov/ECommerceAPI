@@ -1,9 +1,13 @@
 ﻿using E_CommerceAPI.Application.Repositories;
 using E_CommerceAPI.Domain.Entities.Common;
 using E_CommerceAPI.Persistence.Contexts;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace E_CommerceAPI.Persistence.Repositories
 {

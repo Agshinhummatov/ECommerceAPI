@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace E_CommerceAPI.Application.Features.Commands.Product.RemoveProduct
 {
-    public class RemoveProductCommandHandler : IRequestHandler<RemoveProductCommandRequset, RemoveProductCommandResponse>
+    public class RemoveProductCommandHandler : IRequestHandler<RemoveProductCommandRequest, RemoveProductCommandResponse>
     {
         private readonly IProductService _productService;
 
@@ -18,7 +18,7 @@ namespace E_CommerceAPI.Application.Features.Commands.Product.RemoveProduct
             _productService = productService;
         }
 
-        public async Task<RemoveProductCommandResponse> Handle(RemoveProductCommandRequset request, CancellationToken cancellationToken)
+        public async Task<RemoveProductCommandResponse> Handle(RemoveProductCommandRequest request, CancellationToken cancellationToken)
         {
             try
             {

@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace E_CommerceAPI.Application.Features.Commands.Product.UpdateProduct
 {
-    public class UpdateProductCommandRequset : IRequest<UpdateProductCommandResponse>
+    public class UpdateProductCommandRequest : IRequest<UpdateProductCommandResponse>
     {
         public string Id { get; set; }
 
         public string Name { get; set; }
         public int Stock { get; set; }
-        public float Price { get; set; }
+        public decimal Price { get; set; }
+        public string Description { get; set; }
     }
 }
