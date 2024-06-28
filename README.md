@@ -37,7 +37,8 @@ The persistence layer includes database interactions and concrete service implem
 - **OrderRepository**: Manages database operations for orders.
 - **UserRepository**: Implements database operations for user-related data.
 
-##Product
+## Product
+
 Create Product: Endpoint to create a new product.
 
 Update Product: Endpoint to update an existing product.
@@ -52,7 +53,7 @@ Get Product by Id: Endpoint to retrieve details of a product by its unique ident
 
 Change Showcase Image for Product: Endpoint to set a specific image as the showcase image for a product.
 
-##Basket
+## Basket
 
 Add Product to User Basket: Endpoint to add a product to a user's basket.
 
@@ -60,14 +61,16 @@ Update Product in User Basket: Endpoint to update a product quantity in the user
 
 Complete User Basket: Endpoint to finalize the selection and prepare for order.
 
-##Order
+## Order 
+
 User Order: Endpoint for a user to place an order.
 
 Admin Complete Order: Endpoint for an admin to mark an order as completed.
 
 Admin Delete Order: Endpoint for an admin to delete an order.
 
-##Login
+## Login
+
 
 User Login: Endpoint for users to log in using credentials.
 
@@ -77,7 +80,7 @@ Reset Password via Email: Endpoint to initiate a password reset process via emai
 
 Reset JWT Token: Endpoint to regenerate a new JWT token after expiration.
 
-##Register
+## Register
 
 User Register: Endpoint for user registration.
 Google Register: Endpoint for user registration using Google authentication.
