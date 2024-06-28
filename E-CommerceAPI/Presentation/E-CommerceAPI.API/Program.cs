@@ -2,6 +2,7 @@ using E_CommerceAPI.Application;
 using E_CommerceAPI.Application.Abstractions.Storage.Azure;
 using E_CommerceAPI.Application.Validations.Products;
 using E_CommerceAPI.Infrastructure;
+
 using E_CommerceAPI.Infrastructure.Filters;
 using E_CommerceAPI.Infrastructure.Services.Storage.Local;
 using E_CommerceAPI.Persistence;
@@ -13,9 +14,10 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
 builder.Services.AddPresistenceServices();
 builder.Services.AddApplicationServices();
+
 
 
 builder.Services.AddInfrastructureServices();
@@ -24,7 +26,7 @@ builder.Services.AddStorage<LocalStorage>();
 
 
 builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
-    policy.WithOrigins("http://localhost:4200", "https://localhost:4200")
+    policy.WithOrigins("http://localhost:7068", "https://localhost:7068")
           .AllowAnyHeader()
           .AllowAnyMethod().AllowCredentials()
 ));
@@ -76,5 +78,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
 
 app.Run();

@@ -457,7 +457,7 @@ namespace E_CommerceAPI.Persistence.Migrations
             modelBuilder.Entity("E_CommerceAPI.Domain.Entities.Basket", b =>
                 {
                     b.HasOne("E_CommerceAPI.Domain.Entities.Identity.AppUser", "User")
-                        .WithMany()
+                        .WithMany("Baskets")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -578,6 +578,11 @@ namespace E_CommerceAPI.Persistence.Migrations
 
                     b.Navigation("Order")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("E_CommerceAPI.Domain.Entities.Identity.AppUser", b =>
+                {
+                    b.Navigation("Baskets");
                 });
 
             modelBuilder.Entity("E_CommerceAPI.Domain.Entities.Order", b =>

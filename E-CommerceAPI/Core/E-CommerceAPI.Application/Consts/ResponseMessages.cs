@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace E_CommerceAPI.Application.Consts
 {
     public static class ResponseMessages
@@ -50,13 +45,23 @@ namespace E_CommerceAPI.Application.Consts
       
         public const string UserCreationError = "Error creating user.";
         public const string PasswordUpdateError = "Error updating password.";
-
-       
         public const string LoginError = "Error during login.";
         public const string RefreshTokenLoginError = "Error during refresh token login.";
         public const string GoogleLoginError = "Error during Google login.";
         public const string PasswordResetError = "Error during password reset.";
         public const string VerifyResetTokenError = "Error during token verification.";
+
+        // Basket response message 
+        public const string BasketRetrievalError = "An error occurred while retrieving the basket items.";
+        public const string BasketItemAdditionError = "An error occurred while adding the item to the basket.";
+        public const string BasketItemUpdateError = "An error occurred while updating the basket item quantity.";
+        public const string BasketItemRemovalError = "An error occurred while removing the item from the basket.";
+
+        // Order response message
+        public const string OrderRetrievalError = "An error occurred while retrieving the order.";
+        public const string OrderNotFound = "Order with ID {0} was not found.";
+        public const string OrderCreationError = "An error occurred while creating the order.";
+        public const string OrderCompletionError = "An error occurred while completing the order.";
 
 
 
