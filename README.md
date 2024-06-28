@@ -37,6 +37,38 @@ The persistence layer includes database interactions and concrete service implem
 - **OrderRepository**: Manages database operations for orders.
 - **UserRepository**: Implements database operations for user-related data.
 
+## Project 
+
+##Product
+Create Product
+Put Product
+Update Product
+Serahc Product
+ProductImageCretae
+ProductImageDelet
+GetByIdProductImage
+ShowcahangeImageProduct
+
+
+## Basket 
+User Add Product
+UserUpdateProduct
+Product Completed User Basket mail 
+##Order
+User Order Admin
+Completed Order Admin
+DeleteOrder Admin
+## Login User
+Google Login
+User Login
+Reset Pasword Mail
+## Register 
+Google Register
+User Register
+##
+
+
+
 ## Validation and Filters
 
 ### Validation Filters
@@ -68,170 +100,145 @@ Contributions are welcome! Please follow [guidelines or instructions for contrib
 
 
 
-API Endpoints
-Products
-GET /api/products: Get all products.
-GET /api/products/{id}: Get product by id.
-POST /api/products: Create a new product.
-PUT /api/products/{id}: Update a product.
-DELETE /api/products/{id}: Delete a product.
-Users
-POST /api/users/register: Register a new user.
-POST /api/users/login: Login and generate JWT token.
-PUT /api/users/update-password: Update user password.
-Baskets
-GET /api/baskets: Get basket items.
-POST /api/baskets/add-item: Add item to basket.
-PUT /api/baskets/update-quantity: Update item quantity in basket.
-DELETE /api/baskets/remove-item/{basketItemId}: Remove item from basket.
-Orders
-GET /api/orders/{id}: Get order by id.
-GET /api/orders: Get all orders.
-POST /api/orders: Create a new order.
-GET /api/orders/complete-order/{id}: Complete an order.
+
+Shopping Cart Operations
+1. Get Basket Items
+
+URL: /get-basket-items
+Method: GET
+Description: Retrieves all items in the user's shopping cart.
+Success Response: 200 - Successfully retrieved basket items.
+Error Response: 500 - Internal server error encountered.
+2. Add Item to Basket
+
+URL: /add-item-to-basket
+Method: POST
+Description: Adds a new item to the user's shopping cart.
+Success Response: 200 - Item added to the basket successfully.
+Error Response: 500 - Internal server error encountered.
+3. Update Item Quantity
+
+URL: /update-quantity
+Method: PUT
+Description: Updates the quantity of an item in the user's shopping cart.
+Success Response: 200 - Quantity updated successfully.
+Error Response: 500 - Internal server error encountered.
+4. Remove Item from Basket
+
+URL: /remove-basket-item/{BasketItemId}
+Method: DELETE
+Description: Removes a specific item from the user's shopping cart.
+Success Response: 200 - Item removed from the basket successfully.
+Error Response: 500 - Internal server error encountered.
+User Operations
+1. User Login
+
+URL: /login
+Method: POST
+Description: Allows the user to log in.
+Success Response: 200 - Login successful.
+Error Response: 400 - Bad request, or 500 - Internal server error encountered.
+2. Login with Refresh Token
+
+URL: /refresh-token-login
+Method: GET
+Description: Allows the user to log in using a refresh token.
+Success Response: 200 - Login with refresh token successful.
+Error Response: 400 - Bad request, or 500 - Internal server error encountered.
+3. Login with Google
+
+URL: /google-login
+Method: POST
+Description: Allows the user to log in using their Google account.
+Success Response: 200 - Login with Google successful.
+Error Response: 400 - Bad request, or 500 - Internal server error encountered.
+4. Password Reset
+
+URL: /password-reset
+Method: POST
+Description: Allows the user to reset their password.
+Success Response: 200 - Password reset successful.
+Error Response: 400 - Bad request, or 500 - Internal server error encountered.
+5. Verify Reset Token
+
+URL: /verify-reset-token
+Method: POST
+Description: Allows the user to verify their password reset token.
+Success Response: 200 - Token verification successful.
+Error Response: 400 - Bad request, or 500 - Internal server error encountered.
+Order Operations
+1. Get Order Details
+
+URL: /{Id}
+Method: GET
+Description: Retrieves details of a specific order.
+Success Response: 200 - Order details retrieved successfully.
+Error Response: 404 - Order not found, or 500 - Internal server error encountered.
+2. Get All Orders
+
+URL: /
+Method: GET
+Description: Retrieves all orders.
+Success Response: 200 - All orders retrieved successfully.
+Error Response: 500 - Internal server error encountered.
+3.Create Order
+
+URL: /create-order
+Method: POST
+Description: Creates a new order.
+Success Response: 201 - Order created successfully.
+Error Response: 500 - Internal server error encountered.
+4. Complete Order
+
+URL: /complete-order/{Id}
+Method: POST
+Description: Completes a specific order.
+Success Response: 200 - Order completed successfully.
+Error Response: 500 - Internal server error encountered.
+Product Operations
+1. Get All Products
+
+URL: /
+Method: GET
+Description: Retrieves all products.
+Success Response: 200 - All products retrieved successfully.
+Error Response: 500 - Internal server error encountered.
+2. Get Specific Product
+
+URL: /{Id}
+Method: GET
+Description: Retrieves details of a specific product.
+Success Response: 200 - Product details retrieved successfully.
+Error Response: 404 - Product not found, or 500 - Internal server error encountered.
+3. Create Product
+
+URL: /
+Method: POST
+Description: Creates a new product.
+Success Response: 201 - Product created successfully.
+Error Response: 400 - Bad request, or 500 - Internal server error encountered.
+4. Delete Product
+
+URL: /{Id}
+Method: DELETE
+Description: Deletes a specific product.
+Success Response: 200 - Product deleted successfully.
+Error Response: 404 - Product not found, or 500 - Internal server error encountered.
+Payment Operations
+1. Make Payment
+
+URL: /make-payment
+Method: POST
+Description: Processes payment for a specific order.
+Success Response: 200 - Payment processed successfully.
+Error Response: 400 - Bad request, or 500 - Internal server error encountered.
 
 
 
-Azerbaijan : 
-
-Bu layihənin daha təkmil versiyası bu depodadır: https://github.com/Agshinhummatov/E-CommerceAPI-ASP.NET-Core-OnionArchitectureProject
 
 
-# Elektron Ticarət Layihəsi
-
-Bu layihə [layihənin məqsədini qısaca təsvir etmək] məqsədi daşıyır.
-
-## İstifadə olunan Texnologiyalar
-
-- ASP.NET Core
-- MediatR CQRS
-- Entity Framework Core
-- Soğan Memarlığı
-- Swagger
-- PostgreSQL
-- Docker (istəyə görə, istifadə olunarsa)
-- JWT Authentication (istəyə görə, əgər istifadə olunarsa)
-
-## Layihəyə Baxış
-
-Bu layihə [layihənin məqsədləri və əhatə dairəsinin daha ətraflı təsvirini təqdim edir].
-
-## Qovluq Strukturu
-
-Layihə aşağıdakı qovluq strukturu ilə Onion Architecture prinsiplərinə əməl edir:
-
-- **Tətbiq**: Tətbiq xidmətləri və CQRS əmrləri/işləyiciləri.
-- **Domen**: Domen modelləri və biznes məntiqi.
-- **İnfrastruktur**: verilənlər bazası əlaqələri, xarici xidmətlər və məlumatların davamlılığı səviyyəsi.
-- **Təqdimat**: API nəzarətçiləri və Swagger konfiqurasiyası.
-
-## Davamlılıq Layeri
-
-Davamlılıq qatına verilənlər bazası ilə qarşılıqlı əlaqə və konkret xidmət tətbiqetmələri daxildir:
-
-- **ProductRepository**: Məhsullarla bağlı verilənlər bazası əməliyyatlarını idarə edir.
-- **OrderRepository**: Sifarişlər üçün verilənlər bazası əməliyyatlarını idarə edir.
-- **UserRepository**: İstifadəçi ilə əlaqəli məlumatlar üçün verilənlər bazası əməliyyatlarını həyata keçirir.
-
-## Doğrulama və Filtrlər
-
-### Doğrulama Filtrləri
-
-Təsdiqləmə filtrləri möhkəm giriş yoxlaması üçün FluentValidation istifadə edərək həyata keçirilir:
-
-- **CreateProductValidator**: Məhsulun adı, təsviri, ehtiyatı və qiyməti üçün qaydaları tətbiq edərək emal etməzdən əvvəl "CreateProductCommandRequest"i təsdiqləyir.
-
-### Fəaliyyət Filtrləri
-
-`ValidationFilter` kimi fəaliyyət filtrləri verilənlərin etibarlılığını təmin etmək üçün icradan əvvəl sorğuları kəsir:
-
-- **ValidationFilter**: Fəaliyyətin icrasından əvvəl `ModelState.IsValid` yoxlayır. Yanlışdırsa, o, təfərrüatlı doğrulama xətaları ilə `BadRequestObjectResult` qaytarır.
-
-## Başlamaq
-
-Layihəyə yerli və ya serverdə başlamaq üçün bu addımları yerinə yetirin:
-1. [İlkin şərtlərin, asılılıqların və mühit dəyişənlərinin qurulması üzrə təlimatlar].
-2. [Layihəni yerli olaraq necə idarə etmək və ya serverdə yerləşdirmək].
-3. [Əgər varsa, əlavə konfiqurasiya addımları].
-
-## API Sənədləri
-
-[URL] ünvanında Swagger UI istifadə edərək layihənin API son nöqtələrini araşdırın. Burada müxtəlif son nöqtələri sınaqdan keçirə və onlarla əlaqə saxlaya bilərsiniz.
-
-## Töhfə
-
-Töhfələr xoş gəlmisiniz! Lütfən, [töhfə vermək üçün təlimatlara və ya təlimatlara] əməl edin və cəlbetmə sorğularını göndərin.
 
 
-Turkey :
-
-Bu projenin daha gelişmiş versiyonu şu depodadır: https://github.com/Agshinhummatov/E-CommerceAPI-ASP.NET-Core-OnionArchitectureProject
-
-
-# E-Ticaret Projesi
-
-Bu proje [proje amacını kısaca açıklamayı] amaçlamaktadır.
-
-## Kullanılan Teknolojiler
-
-- ASP.NET Çekirdeği
-- MediatR CQRS
-- Varlık Çerçevesi Çekirdeği
-- Soğan Mimarisi
-- Havalı
--PostgreSQL
-- Docker (kullanılıyorsa isteğe bağlı)
-- JWT Kimlik Doğrulaması (kullanılıyorsa isteğe bağlı)
-
-## Projeye Genel Bakış
-
-Bu proje [projenin hedeflerinin ve kapsamının daha ayrıntılı bir tanımını sağlayın].
-
-## Klasör Yapısı
-
-Proje, aşağıdaki klasör yapısıyla Onion Mimarisinin ilkelerini takip ediyor:
-
-- **Uygulama**: Uygulama hizmetleri ve CQRS komutları/işleyicileri.
-- **Etki alanı**: Etki alanı modelleri ve iş mantığı.
-- **Altyapı**: Veritabanı bağlantıları, harici hizmetler ve veri kalıcılığı katmanı.
-- **Sunum**: API denetleyicileri ve Swagger yapılandırması.
-
-## Kalıcılık Katmanı
-
-Kalıcılık katmanı, veritabanı etkileşimlerini ve somut hizmet uygulamalarını içerir:
-
-- **ProductRepository**: Ürünlerle ilgili veritabanı işlemlerini gerçekleştirir.
-- **OrderRepository**: Siparişlere ilişkin veritabanı işlemlerini yönetir.
-- **UserRepository**: Kullanıcıyla ilgili veriler için veritabanı işlemlerini uygular.
-
-## Doğrulama ve Filtreler
-
-### Doğrulama Filtreleri
-
-Doğrulama filtreleri, sağlam giriş doğrulaması için FluentValidation kullanılarak uygulanır:
-
-- **CreateProductValidator**: "CreateProductCommandRequest"i işlemeden önce doğrular ve ürün adı, açıklama, stok ve fiyatla ilgili kuralları uygular.
-
-### Eylem Filtreleri
-
-'ValidationFilter' gibi eylem filtreleri, veri geçerliliğini sağlamak için istekleri yürütmeden önce durdurur:
-
-- **ValidationFilter**: Eylem yürütülmeden önce `ModelState.IsValid`i kontrol eder. Geçersizse, ayrıntılı doğrulama hatalarını içeren bir "BadRequestObjectResult" döndürür.
-
-## Başlarken
-
-Projeye yerel olarak veya bir sunucuda başlamak için şu adımları izleyin:
-1. [Önkoşulları, bağımlılıkları ve ortam değişkenlerini ayarlama talimatları].
-2. [Proje yerel olarak nasıl çalıştırılır veya bir sunucuya dağıtılır].
-3. [Varsa ek yapılandırma adımları].
-
-## API Belgeleri
-
-[URL] adresindeki Swagger kullanıcı arayüzünü kullanarak projenin API uç noktalarını keşfedin. Burada çeşitli uç noktaları test edebilir ve bunlarla etkileşimde bulunabilirsiniz.
-
-## Katkı
-
-Katkılarınızı bekliyoruz! Lütfen [katkıda bulunma yönergelerini veya talimatlarını] takip edin ve çekme istekleri gönderin.
 
 
 
