@@ -112,11 +112,17 @@ To get started with the project locally or on a server, follow these steps:
 
 Explore the project's API endpoints using Swagger UI at [URL]. Here you can test and interact with various endpoints.
 
-## Contributing
 
-Contributions are welcome! Please follow [guidelines or instructions for contributing], and submit pull requests.
 
+## API
 ![Product Management Screenshot](https://i.imgur.com/mdfNnYJ.png)
+
+![Product Management Dashboard](https://i.imgur.com/ZXVLt7w.png)
+
+![Order Management Dashboard](https://i.imgur.com/pgtRdB5.png)
+
+
+
 
 
 Shopping Cart Operations
