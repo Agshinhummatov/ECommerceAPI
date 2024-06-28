@@ -121,7 +121,8 @@ Explore the project's API endpoints using Swagger UI at [URL]. Here you can test
 
 ![Order Management Dashboard](https://i.imgur.com/pgtRdB5.png)
 
-![Eklenmiş Resim](https://imgur.com/JEw5Stc)
+![Eklenmiş Resim](https://i.imgur.com/wivCm9O.png)
+
 
 
 
