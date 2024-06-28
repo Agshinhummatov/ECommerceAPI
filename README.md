@@ -41,30 +41,52 @@ The persistence layer includes database interactions and concrete service implem
 
 ##Product
 Create Product
+
 Put Product
+
 Update Product
+
 Serahc Product
+
 ProductImageCretae
+
 ProductImageDelet
+
 GetByIdProductImage
+
 ShowcahangeImageProduct
 
 
 ## Basket 
 User Add Product
+
 UserUpdateProduct
+
 Product Completed User Basket mail 
-##Order
+
+## Order
 User Order Admin
+
 Completed Order Admin
+
 DeleteOrder Admin
-## Login User
+
+##Login User
+
 Google Login
+
 User Login
+
 Reset Pasword Mail
+
+ResetJWT Token 
+
 ## Register 
+
 Google Register
+
 User Register
+
 ##
 
 
