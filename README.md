@@ -116,7 +116,7 @@ Explore the project's API endpoints using Swagger UI at [URL]. Here you can test
 
 Contributions are welcome! Please follow [guidelines or instructions for contributing], and submit pull requests.
 
-
+![Product Management Screenshot](https://i.imgur.com/mdfNnYJ.png)
 
 
 Shopping Cart Operations
