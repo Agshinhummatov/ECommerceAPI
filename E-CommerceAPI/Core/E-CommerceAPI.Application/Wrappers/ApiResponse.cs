@@ -20,12 +20,12 @@ namespace E_CommerceAPI.Application.Wrappers
             Data = data;
         }
 
-        public static ApiResponse<T> Success(T data, string message = "")
+        public static ApiResponse<T> Success(T data, string message = "Request successful.")
         {
             return new ApiResponse<T>(StatusCodes.Status200OK, message, data);
         }
 
-        public static ApiResponse<T> Created(T data, string message = "")
+        public static ApiResponse<T> Created(T data, string message = "Created")
         {
             return new ApiResponse<T>(StatusCodes.Status201Created, message, data);
         }

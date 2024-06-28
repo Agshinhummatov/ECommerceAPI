@@ -19,7 +19,16 @@ namespace E_CommerceAPI.Application.Consts
         public const string ProductSearchError = "An error occurred while searching for products.";
         public const string ProductSearchCannotEmpty = "Search cannot be empty terminal";
         public const string ProductSearchNotFound = "The product you were looking for was not found.";
+        public const string ProductImagesNotFound = "Product not Found";
 
+
+
+        public const string NoFilesProvided = "No files provided.";
+        public const string UploadProductFileError = "An error occurred while uploading the product file.";
+        public const string GetProductImagesError = "An error occurred while retrieving the product images.";
+        public const string InvalidImageId = "Invalid image ID.";
+        public const string DeleteProductImageError = "An error occurred while deleting the product image.";
+        public const string ChangeShowcaseImageError = "An error occurred while changing the showcase image.";
 
         //Create Product Validator response messages
 
@@ -34,6 +43,20 @@ namespace E_CommerceAPI.Application.Consts
         public const string NegativePrice = "Price information cannot be negative.";
         public const string ZeroPrice = "The product price cannot be zero.";
         public const string ExcessivePrice = "The product price is too big.";
+
+
+        //User response message 
+
+      
+        public const string UserCreationError = "Error creating user.";
+        public const string PasswordUpdateError = "Error updating password.";
+
+       
+        public const string LoginError = "Error during login.";
+        public const string RefreshTokenLoginError = "Error during refresh token login.";
+        public const string GoogleLoginError = "Error during Google login.";
+        public const string PasswordResetError = "Error during password reset.";
+        public const string VerifyResetTokenError = "Error during token verification.";
 
 
 

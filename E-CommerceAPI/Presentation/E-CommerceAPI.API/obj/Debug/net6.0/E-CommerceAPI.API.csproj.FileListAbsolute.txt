@@ -115,3 +115,4 @@ C:\Users\Acer\Desktop\AIRGroupProject\E-CommerceAPI\Presentation\E-CommerceAPI.A
 C:\Users\Acer\Desktop\AIRGroupProject\E-CommerceAPI\Presentation\E-CommerceAPI.API\bin\Debug\net6.0\E-CommerceAPI.Persistence.pdb
 C:\Users\Acer\Desktop\AIRGroupProject\E-CommerceAPI\Presentation\E-CommerceAPI.API\bin\Debug\net6.0\E-CommerceAPI.SignalR.pdb
 C:\Users\Acer\Desktop\AIRGroupProject\E-CommerceAPI\Presentation\E-CommerceAPI.API\bin\Debug\net6.0\E-CommerceAPI.Domain.pdb
+C:\Users\Acer\Desktop\AIRGroupProject\E-CommerceAPI\Presentation\E-CommerceAPI.API\bin\Debug\net6.0\E-CommerceAPI.API.staticwebassets.runtime.json

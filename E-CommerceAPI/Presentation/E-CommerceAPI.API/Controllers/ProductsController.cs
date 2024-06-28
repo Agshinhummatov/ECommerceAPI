@@ -3,15 +3,17 @@ using E_CommerceAPI.Application.DTOs.Product;
 using E_CommerceAPI.Application.Features.Commands.Product.CreateProduct;
 using E_CommerceAPI.Application.Features.Commands.Product.RemoveProduct;
 using E_CommerceAPI.Application.Features.Commands.Product.UpdateProduct;
+using E_CommerceAPI.Application.Features.Commands.ProductImageFile.ChangeShowcaseImage;
+using E_CommerceAPI.Application.Features.Commands.ProductImageFile.RemoveProdcutImage;
+using E_CommerceAPI.Application.Features.Commands.ProductImageFile.UploadProdcutImage;
 using E_CommerceAPI.Application.Features.Queries.Product.GetAllProduct;
 using E_CommerceAPI.Application.Features.Queries.Product.GetByIdProduct;
 using E_CommerceAPI.Application.Features.Queries.Product.SearchProducts;
+using E_CommerceAPI.Application.Features.Queries.ProductImageFile.GetProductImages;
 using E_CommerceAPI.Application.Wrappers;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Net;
+
 
 namespace E_CommerceAPI.API.Controllers
 {
@@ -166,5 +168,104 @@ namespace E_CommerceAPI.API.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ApiResponse<string>.InternalServerError(ResponseMessages.ProductSearchError));
             }
         }
+
+
+
+
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ApiResponse<UploadProductImageCommandResponse>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ApiResponse<string>))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ApiResponse<string>))]
+        public async Task<IActionResult> UploadProductFile([FromForm] UploadProductImageCommandRequest uploadProductImageCommandRequest)
+        {
+            try
+            {
+                if (uploadProductImageCommandRequest.Files == null || !uploadProductImageCommandRequest.Files.Any())
+                {
+                    return BadRequest(ApiResponse<string>.BadRequest(ResponseMessages.NoFilesProvided));
+                }
+
+                uploadProductImageCommandRequest.Files = Request.Form.Files;
+                UploadProductImageCommandResponse response = await _mediator.Send(uploadProductImageCommandRequest);
+                return Ok(ApiResponse<UploadProductImageCommandResponse>.Success(response));
+            }
+            catch (Exception ex)
+            {
+                
+                return StatusCode(StatusCodes.Status500InternalServerError, ApiResponse<string>.InternalServerError(ResponseMessages.UploadProductFileError));
+            }
+        }
+
+
+        [HttpGet("{Id}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ApiResponse<IEnumerable<GetProductImagesQueryResponse>>))]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ApiResponse<string>))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ApiResponse<string>))]
+        public async Task<IActionResult> GetProductImages([FromRoute] GetProductImagesQueryRequest getProductImagesQueryRequest)
+        {
+            try
+            {
+                List<GetProductImagesQueryResponse> response = await _mediator.Send(getProductImagesQueryRequest);
+                if (response == null || !response.Any())
+                {
+                    return NotFound(ApiResponse<string>.NotFound(ResponseMessages.ProductImagesNotFound));
+                }
+                return Ok(ApiResponse<IEnumerable<GetProductImagesQueryResponse>>.Success(response));
+            }
+            catch (Exception ex)
+            {
+                
+                return StatusCode(StatusCodes.Status500InternalServerError, ApiResponse<string>.InternalServerError(ResponseMessages.GetProductImagesError));
+            }
+        }
+
+
+        [HttpDelete("{Id}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ApiResponse<RemoveProductImageCommandResponse>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ApiResponse<string>))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ApiResponse<string>))]
+        public async Task<IActionResult> DeleteProductImage([FromRoute] RemoveProductImageCommandRequest removeProductImageCommandRequest, [FromQuery] string imageId)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(imageId))
+                {
+                    return BadRequest(ApiResponse<string>.BadRequest(ResponseMessages.InvalidImageId));
+                }
+
+                removeProductImageCommandRequest.ImageId = imageId;
+                RemoveProductImageCommandResponse response = await _mediator.Send(removeProductImageCommandRequest);
+                return Ok(ApiResponse<RemoveProductImageCommandResponse>.Success(response));
+            }
+            catch (Exception ex)
+            {
+                
+                return StatusCode(StatusCodes.Status500InternalServerError, ApiResponse<string>.InternalServerError(ResponseMessages.DeleteProductImageError));
+            }
+        }
+
+
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ApiResponse<ChangeShowcaseImageCommandResponse>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ApiResponse<string>))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ApiResponse<string>))]
+        public async Task<IActionResult> ChangeShowcaseImage([FromQuery] ChangeShowcaseImageCommandRequest changeShowcaseImageCommandRequest)
+        {
+            try
+            {
+                ChangeShowcaseImageCommandResponse response = await _mediator.Send(changeShowcaseImageCommandRequest);
+                return Ok(ApiResponse<ChangeShowcaseImageCommandResponse>.Success(response));
+            }
+            catch (Exception ex)
+            {
+                
+                return StatusCode(StatusCodes.Status500InternalServerError, ApiResponse<string>.InternalServerError(ResponseMessages.ChangeShowcaseImageError));
+            }
+        }
+
+
+
     }
+
+
 }
