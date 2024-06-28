@@ -37,57 +37,50 @@ The persistence layer includes database interactions and concrete service implem
 - **OrderRepository**: Manages database operations for orders.
 - **UserRepository**: Implements database operations for user-related data.
 
-## Project 
-
 ##Product
-Create Product
+Create Product: Endpoint to create a new product.
 
-Put Product
+Update Product: Endpoint to update an existing product.
 
-Update Product
+Search Product: Endpoint to search for products based on a search term.
 
-Serahc Product
+Create Product Image: Endpoint to upload and associate images with a product.
 
-ProductImageCretae
+Delete Product Image: Endpoint to delete an image associated with a product.
 
-ProductImageDelet
+Get Product by Id: Endpoint to retrieve details of a product by its unique identifier.
 
-GetByIdProductImage
+Change Showcase Image for Product: Endpoint to set a specific image as the showcase image for a product.
 
-ShowcahangeImageProduct
+##Basket
 
+Add Product to User Basket: Endpoint to add a product to a user's basket.
 
-## Basket 
-User Add Product
+Update Product in User Basket: Endpoint to update a product quantity in the user's basket.
 
-UserUpdateProduct
+Complete User Basket: Endpoint to finalize the selection and prepare for order.
 
-Product Completed User Basket mail 
+##Order
+User Order: Endpoint for a user to place an order.
 
-## Order
-User Order Admin
+Admin Complete Order: Endpoint for an admin to mark an order as completed.
 
-Completed Order Admin
+Admin Delete Order: Endpoint for an admin to delete an order.
 
-DeleteOrder Admin
+##Login
 
-##Login User
+User Login: Endpoint for users to log in using credentials.
 
-Google Login
+Google Login: Endpoint for users to log in using Google authentication.
 
-User Login
+Reset Password via Email: Endpoint to initiate a password reset process via email.
 
-Reset Pasword Mail
+Reset JWT Token: Endpoint to regenerate a new JWT token after expiration.
 
-ResetJWT Token 
+##Register
 
-## Register 
-
-Google Register
-
-User Register
-
-##
+User Register: Endpoint for user registration.
+Google Register: Endpoint for user registration using Google authentication.
 
 
 
